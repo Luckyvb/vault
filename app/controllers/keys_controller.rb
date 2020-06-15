@@ -27,7 +27,7 @@ class KeysController < ApplicationController
     @query = params[:query]
 
     if params[:search_fild] == nil
-      @search_fild = 'name'
+      @search_fild = 'any'
     else
       @search_fild = params[:search_fild]
     end
@@ -38,10 +38,14 @@ class KeysController < ApplicationController
         tag = Vault::Tag.find_by_name(tag_string)
         @keys = tag.nil? ? nil : tag.keys.where(project: @project)
       else
-        if params[:search_fild] == 'name'
-          @keys = @project.keys.where(name: @query)
+        if params[:search_fild] == 'any'
+          @keys = @project.keys.where("name LIKE ? or login LIKE ?", "%"+@query+"%", "%"+@query+"%").or(@project.keys.where("url LIKE ?", "%"+@query+"%"))
+          tag = Vault::Tag.find_by_name(@query)
+          @keys.union(tag.keys.where(project: @project)) if !tag.nil?
+        elsif params[:search_fild] == 'name'
+          @keys = @project.keys.where("name LIKE ? or login LIKE ?", "%"+@query+"%", "%"+@query+"%")
         elsif params[:search_fild] == 'url'
-          @keys = @project.keys.where(url: @query)
+          @keys = @project.keys.where("url LIKE ?", "%"+@query+"%")
         elsif params[:search_fild] == 'tag'
           tag = Vault::Tag.find_by_name(@query)
           @keys = tag.nil? ? nil : tag.keys.where(project: @project)

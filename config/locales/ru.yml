@@ -2,6 +2,13 @@
 ru:
   label_vault: 'Vault'
   label_module: 'Ключи'
+  project_module_keys: "Ключи"
+  permission_export_keys: "Экспортировать ключи"
+  permission_download_keys: "Скачивать ключи"
+  permission_view_keys: "Просматривать ключи"
+  permission_edit_keys: "Редактировать ключи"
+  permission_manage_whitelist_keys: "Управлять списками доступа"
+  permission_whitelist_keys: "Списки доступа"
   settings:
     title: "Настройки Vault"
     vault_title_encription_key: "Ключ шифрования"
@@ -53,6 +60,7 @@ ru:
       file: "Файл ключа"
       comment: "Комментарий"
       whitelist: "Список доступа"
+      any: "Любое"
 
     whitelist:
       selected_members: "Выбранные участники"

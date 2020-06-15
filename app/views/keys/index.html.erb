@@ -14,6 +14,9 @@
   <%= text_field_tag(:query, @query, class: 'autocomplete') %>
 
       <font size="2">
+      <%= radio_button_tag(:search_fild, "any", @search_fild == 'any' ? true : false ) %>
+      <%= label_tag(:any, t('key.attr.any')) %>
+
       <%= radio_button_tag(:search_fild, "name", @search_fild == 'name' ? true : false ) %>
       <%= label_tag(:name, t('key.attr.name')) %>
 
