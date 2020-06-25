@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th style="text-align:left"> <%= t('backups.title') %> </th>
+    <th style="text-align:right"> <%= button_to(t('backups.btn.download_backup'), {:controller => :vault_settings, :action => :backup})%> </th>
+  </tr>
+
+  <tr>
+    <th style="text-align:left"> <%= t('backups.title_restore') %> </th>
+    <th style="text-align:right">
+      <%= form_tag({:controller => :vault_settings, :action => :restore}, method: 'post',multipart: true) do %>
+          <%= file_field_tag :file %>
+        <%= submit_tag(t('backups.btn.upload_backup')) %>
+      <% end %>
+    </th>
+  </tr>
+</table>

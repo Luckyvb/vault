@@ -1,0 +1,20 @@
+<%= form_tag({:controller => :vault_settings, :action => :save}) do %>
+<table>
+  <tbody>
+    <tr>
+      <th><%= t('settings.vault_title_encription_key') %></th>
+      <td>
+        <input type="text" id="settings_encryption_key" value="<%= Setting.plugin_vault['encryption_key'] %>" name="settings[encryption_key]" >
+        <%= t('settings.vault_encription_notice') %>
+      </td>
+    </tr>
+    <tr>
+       <th><%= t('settings.redmine_title_encription_key') %></th>
+       <td>
+         <%= check_box_tag('settings[use_redmine_encryption]',Setting.plugin_vault['use_redmine_encryption'], Setting.plugin_vault['use_redmine_encryption']) %>
+         <%= t('settings.redmine_encryption_notice') %>
+       </td>
+    </tr>
+  </tbody>
+</table>
+<% end %>

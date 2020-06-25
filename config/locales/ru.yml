@@ -11,6 +11,9 @@ ru:
   permission_whitelist_keys: "Списки доступа"
   settings:
     title: "Настройки Vault"
+    label:
+      encryption: "Шифрование"
+      backup: "Резервное копирование"
     vault_title_encription_key: "Ключ шифрования"
     redmine_title_encription_key: "Использовать шифрование Redmine"
     vault_encription_notice: "Используется только встроенным методом шифрования Vault"

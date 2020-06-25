@@ -4,6 +4,9 @@ en:
   label_module: 'Keys'
   settings:
     title: "Vault settings"
+    label:
+      encryption: "Encription"
+      backup: "Backup"
     vault_title_encription_key: "Encryption key"
     redmine_title_encription_key: "Use Redmine encryption"
     vault_encription_notice: "Used only by Vault encryption method"

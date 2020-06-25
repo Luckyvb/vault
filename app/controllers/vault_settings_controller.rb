@@ -68,6 +68,10 @@ class VaultSettingsController < ApplicationController
   def restore
     # FIXME have problem with not uniq record, move logic to module
 
+    if params[:file].blank? || params[:file].tempfile.blank? || !File.exists?(params[:file].tempfile.to_path.to_s)
+      redirect_to '/vault_settings', notice: t('notice.settings.keys_restore')
+      return
+    end
     Zip::File.open(params[:file].tempfile.to_path.to_s) do |zipfile|
       zipfile.each do |file|
         if file.name == 'keys.csv'

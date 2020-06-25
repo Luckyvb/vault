@@ -12,8 +12,8 @@ end
 resources :vault_settings do
   collection do
     get :autocomplete_for_user
-    post :backup, to: 'vault_settings#backup'
-    post :restore, to: 'vault_settings#restore'
-    post :save, to: 'vault_settings#save'
+    post :backup, to: 'vault_settings'#backup'
+    post :restore, to: 'vault_settings'#restore'
+    post :save, to: 'vault_settings'#save'
   end
 end
