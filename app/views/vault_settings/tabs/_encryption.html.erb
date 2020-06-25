@@ -17,4 +17,5 @@
     </tr>
   </tbody>
 </table>
+<%= submit_tag l(:button_apply) if request.fullpath.start_with?('/vault_settings')%>
 <% end %>
